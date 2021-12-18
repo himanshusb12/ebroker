@@ -79,12 +79,12 @@ Test and Coverage
 API details
 -   
 1. Get balance
-    #####Request
+    ##### Request
     ```
    GET      
    http://127.0.0.1:9010/broker/api/getBalance?userId=<user id>
    ```
-   #####Response
+   ##### Response
    ```json
     {
     "balance": 12000.0,
@@ -93,7 +93,7 @@ API details
     ```
    
 2. Add amount to user balance
-    #####Request
+    ##### Request
     ```
    POST      
    http://127.0.0.1:9010/broker/api/addAmount
@@ -103,7 +103,7 @@ API details
     "amount": 50
     }
    ```
-   #####Response
+   ##### Response
    ```json
     {
     "message": "User balance updated successfully"
@@ -111,7 +111,7 @@ API details
     ```
    
 3. Buy an equity
-    #####Request
+    ##### Request
     ```
    POST      
    http://127.0.0.1:9010/broker/api/buy
@@ -123,7 +123,7 @@ API details
     "timeStamp": "10/12/2021 16:00:01"
     }
    ```
-   #####Response
+   ##### Response
    ```json
     {
     "message": "Equity bought successfully"
@@ -131,7 +131,7 @@ API details
     ```
    
 4. Sell an equity
-    #####Request
+    ##### Request
     ```
    POST      
    http://127.0.0.1:9010/broker/api/sell
@@ -143,7 +143,7 @@ API details
     "timeStamp": "10/12/2021 16:00:01"
     }
    ```
-   #####Response
+   ##### Response
    ```json
     {
     "message": "Equity sold successfully"
