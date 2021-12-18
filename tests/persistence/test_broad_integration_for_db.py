@@ -71,7 +71,7 @@ class TestBroadIntegrationForUserEquityMap(TestCase):
         user_equity_info = self.map_repository.get_user_equity(user_equity_map_id)
         expected_shares = 10
         self.assertEqual(expected_shares, user_equity_info[3])
-        new_map = dict(zip(['id', 'user_id', 'equity_id', 'total_shates'], user_equity_info))
+        new_map = dict(zip(['id', 'user_id', 'equity_id', 'total_shares'], user_equity_info))
         new_shares = 100
         new_map['total_shares'] = new_shares
         self.assertTrue(self.map_repository.update_equity(new_map))
