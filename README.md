@@ -75,6 +75,7 @@ Test and Coverage
     ```
     coverage html
     ```
+    This will create a htmlcov folder in the same directory and coverage report can be accessed by opening htmlcov/index.html file.
 
 API details
 -   
