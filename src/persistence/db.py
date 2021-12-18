@@ -6,6 +6,12 @@ class BrokingDB:
         self.database_file = f'{__file__}/../../../ebroker.db'
 
     def get_connection(self):
+        """
+        Returns connection object
+        Returns
+        -------
+        sqlite3.Connection
+        """
         conn = None
         try:
             conn = sqlite3.connect(self.database_file)
@@ -14,6 +20,21 @@ class BrokingDB:
         return conn
 
     def execute_query(self, query, params=None, is_transactional=False):
+        """
+        Executes given SQL query and returns the result
+        Parameters
+        ----------
+        query: str
+            SQL query
+        params: tuple
+            values to be passed in SQL query at run time
+        is_transactional: bool
+            whether the given query performs some data manipulation like insert, delete, update
+
+        Returns
+        -------
+        list of tuple
+        """
         conn = self.get_connection()
         if not conn:
             raise Exception('No connection')

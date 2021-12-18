@@ -3,6 +3,9 @@ from .db import BrokingDB
 
 class UserEquityMapRepository:
     def __init__(self):
+        """
+        Class to perform CRUD operation on user_equity_map table
+        """
         self.db = BrokingDB()
 
     def get_user_equity(self, user_equity_id):

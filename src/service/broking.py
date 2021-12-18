@@ -33,6 +33,23 @@ class BrokingService:
         return True
 
     def buy_an_equity(self, user_id, equity_id, num_of_shares, time_stamp):
+        """
+        Buys given num of shares of an equity for a given user
+        Parameters
+        ----------
+        user_id: int
+            id of the user who is buying the shares
+        equity_id: int
+            id of the equity user is buying
+        num_of_shares: int
+            num of shares to buy
+        time_stamp: str
+            date and time at which this transaction is happening
+
+        Returns
+        -------
+        str
+        """
         if num_of_shares < 0:
             raise Exception('Provide non negative number of shares to buy')
         if num_of_shares == 0:
@@ -73,6 +90,23 @@ class BrokingService:
         return 'Equity bought successfully'
 
     def sell_an_equity(self, user_id, equity_id, num_of_shares, time_stamp):
+        """
+        Sells given num of shares of an equity for a given user
+        Parameters
+        ----------
+        user_id: int
+            id of the user who is selling the shares
+        equity_id: int
+            id of the equity user is selling
+        num_of_shares: int
+            num of shares to sell
+        time_stamp: str
+            date and time at which this transaction is happening
+
+        Returns
+        -------
+        str
+        """
         if num_of_shares < 0:
             raise Exception('Provide non negative number of shares to sell')
         if num_of_shares == 0:
@@ -110,6 +144,19 @@ class BrokingService:
             return 'Equity sold successfully'
 
     def add_fund(self, user_id, amount):
+        """
+        Add given amount to user balance
+        Parameters
+        ----------
+        user_id: int
+            id of the user
+        amount: float
+            amount to add
+
+        Returns
+        -------
+        str
+        """
         if amount < 0:
             raise Exception('Negative amount cannot be added')
         user_result = self.user_repository.get_user(user_id)
@@ -125,6 +172,17 @@ class BrokingService:
         return 'User balance updated successfully'
 
     def get_balance(self, user_id):
+        """
+        Returns current balance of a user
+        Parameters
+        ----------
+        user_id: int
+            id of the user
+
+        Returns
+        -------
+        float
+        """
         user = self.user_repository.get_user(user_id)
         if user is None:
             raise Exception('No such user exists')

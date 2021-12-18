@@ -3,6 +3,9 @@ from .db import BrokingDB
 
 class UserRepository:
     def __init__(self):
+        """
+        Class to perform CRUD operation on user table
+        """
         self.db = BrokingDB()
 
     def get_user(self, user_id):

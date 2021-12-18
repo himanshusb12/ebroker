@@ -6,6 +6,9 @@ IN_MEMORY_DB = ':memory:'
 
 class InMemoryDB(BrokingDB):
     def __init__(self):
+        """
+        Class to perform db operation on an in-memory database
+        """
         super().__init__()
         self.database_file = IN_MEMORY_DB
         self.conn = self.get_connection()
@@ -48,6 +51,22 @@ class InMemoryDB(BrokingDB):
         cur.execute(query)
 
     def execute_query(self, query, params=None, is_transactional=False):
+        """
+        Executes given SQL query and returns the result. An in-memory db exists till the connection is available. With
+        each new connection a new in-memory db is created.
+        Parameters
+        ----------
+        query: str
+            SQL query
+        params: tuple
+            values to be passed in SQL query at run time
+        is_transactional: bool
+            whether the given query performs some data manipulation like insert, delete, update
+
+        Returns
+        -------
+        list of tuple
+        """
         if not self.conn:
             raise Exception('No connection')
         try:
