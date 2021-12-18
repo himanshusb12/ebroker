@@ -21,7 +21,7 @@ First steps
 
 3. Install the requirements
     ```
-    pip install -r requirements
+    pip install -r requirements.txt
     ```
 
 4. Set up actual database
