@@ -84,12 +84,17 @@ def fill_testing_data(conn):
 if __name__ == '__main__':
     database_file = r'ebroker.db'
     if os.path.exists(database_file):
-        print('Skipping the set up as database already exists. If you still want to set up a fresh database then'
-              ' delete the existing database - ebroker.db')
-    else:
-        conn = create_connection(database_file)
-        if conn:
-            create_tables(conn)
-            fill_testing_data(conn)
-            conn.close()
-            print('Database setup done')
+        delete = input('A database file already exists. '
+                       'Do you want me to delete the existing one and create a new one? (y/n):\t')
+        if delete.lower() in ('y', 'yes'):
+            os.remove(database_file)
+        else:
+            print('Skipping the set up as database already exists. If you still want to set up a fresh database then'
+                  ' delete the existing database - ebroker.db')
+            exit()
+    conn = create_connection(database_file)
+    if conn:
+        create_tables(conn)
+        fill_testing_data(conn)
+        conn.close()
+        print('Database setup done')
